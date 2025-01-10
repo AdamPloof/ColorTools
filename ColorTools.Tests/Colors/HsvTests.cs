@@ -2,15 +2,29 @@ using System;
 using Xunit;
 
 using ColorTools.Colors;
-using ColorTools.Services;
 
 namespace ColorTools.Tests.Services;
 
-public class ConvertTests {
+public class HsvTests {
+    [Fact]
+    public void InvalidHueThrows() {
+        
+    }
+
+    [Fact]
+    public void InvalidSaturationThrows() {
+        
+    }
+
+    [Fact]
+    public void InvalidValueThrows() {
+        
+    }
+
     [Fact]
     public void WhiteRgbToHsv() {
-        Rgb white = new Rgb() {R = 255, G = 255, B = 255};
-        Hsv hsv = Converter.ConvertToHsv(white);
+        Rgb white = new Rgb() {Red = 255, Green = 255, Blue = 255};
+        Hsv hsv = new Hsv(white);
 
         Assert.Equal(0.0, hsv.Saturation);
         Assert.Equal(1.0, hsv.Value);
@@ -18,8 +32,8 @@ public class ConvertTests {
 
     [Fact]
     public void BlackRgbToHsv() {
-        Rgb black = new Rgb() {R = 0, G = 0, B = 0};
-        Hsv hsv = Converter.ConvertToHsv(black);
+        Rgb black = new Rgb() {Red = 0, Green = 0, Blue = 0};
+        Hsv hsv = new Hsv(black);
 
         Assert.Equal(0.0, hsv.Saturation);
         Assert.Equal(0.0, hsv.Value);
@@ -27,8 +41,8 @@ public class ConvertTests {
 
     [Fact]
     public void RedRgbToHsv() {
-        Rgb red = new Rgb() {R = 255, G = 0, B = 0};
-        Hsv hsv = Converter.ConvertToHsv(red);
+        Rgb red = new Rgb() {Red = 255, Green = 0, Blue = 0};
+        Hsv hsv = new Hsv(red);
 
         Assert.Equal(0, Math.Round(hsv.Hue), 2);
         Assert.Equal(1.0, hsv.Saturation);
@@ -37,8 +51,8 @@ public class ConvertTests {
 
     [Fact]
     public void GreenRgbToHsv() {
-        Rgb green = new Rgb() {R = 0, G = 255, B = 0};
-        Hsv hsv = Converter.ConvertToHsv(green);
+        Rgb green = new Rgb() {Red = 0, Green = 255, Blue = 0};
+        Hsv hsv = new Hsv(green);
 
         Assert.Equal(120, Math.Round(hsv.Hue), 2);
         Assert.Equal(1.0, hsv.Saturation);
@@ -47,8 +61,8 @@ public class ConvertTests {
 
     [Fact]
     public void BlueRgbToHsv() {
-        Rgb blue = new Rgb() {R = 0, G = 0, B = 255};
-        Hsv hsv = Converter.ConvertToHsv(blue);
+        Rgb blue = new Rgb() {Red = 0, Green = 0, Blue = 255};
+        Hsv hsv = new Hsv(blue);
 
         Assert.Equal(240, Math.Round(hsv.Hue), 2);
         Assert.Equal(1.0, hsv.Saturation);
@@ -57,8 +71,8 @@ public class ConvertTests {
 
     [Fact]
     public void PurpleRgbToHsv() {
-        Rgb purple = new Rgb() {R = 132, G = 52, B = 163};
-        Hsv hsv = Converter.ConvertToHsv(purple);
+        Rgb purple = new Rgb() {Red = 132, Green = 52, Blue = 163};
+        Hsv hsv = new Hsv(purple);
 
         Assert.Equal(283, Math.Round(hsv.Hue), 2);
         Assert.Equal(0.68, Math.Round(hsv.Saturation, 2), 2);
@@ -67,8 +81,8 @@ public class ConvertTests {
 
     [Fact]
     public void TealRgbToHsv() {
-        Rgb teal = new Rgb() {R = 159, G = 227, B = 203};
-        Hsv hsv = Converter.ConvertToHsv(teal);
+        Rgb teal = new Rgb() {Red = 159, Green = 227, Blue = 203};
+        Hsv hsv = new Hsv(teal);
 
         Assert.Equal(159, Math.Round(hsv.Hue), 2);
         Assert.Equal(0.30, Math.Round(hsv.Saturation, 2), 2);
@@ -77,8 +91,8 @@ public class ConvertTests {
 
     [Fact]
     public void OrangeRgbToHsv() {
-        Rgb orange = new Rgb() {R = 125, G = 64, B = 10};
-        Hsv hsv = Converter.ConvertToHsv(orange);
+        Rgb orange = new Rgb() {Red = 125, Green = 64, Blue = 10};
+        Hsv hsv = new Hsv(orange);
 
         Assert.Equal(28, Math.Round(hsv.Hue), 2);
         Assert.Equal(0.92, Math.Round(hsv.Saturation, 2), 2);

@@ -3,6 +3,6 @@
 using ColorTools.Colors;
 using ColorTools.Services;
 
-Rgb black = new Rgb() {R = 0, G = 0, B = 0};
-Hsv hsv = Converter.ConvertToHsv(black);
-Console.WriteLine($"Black HSV: {hsv.toString()}");
+Rgb black = new Rgb() {Red = 0, Green = 0, Blue = 0};
+Hsv hsv = new Hsv(black);
+Console.WriteLine($"Black HSV: {hsv}");
