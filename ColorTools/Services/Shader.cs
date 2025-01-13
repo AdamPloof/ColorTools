@@ -32,6 +32,16 @@ public static class Shader {
         saturation = Math.Clamp(saturation, 0, 1);
         value = Math.Clamp(value, 0, 1);
 
+        // Set Hue to 0.0 for pure white and pure black for consistency
+        if (saturation == 0.0 && value == 1.0) {
+            // white
+            hue = 0.0;
+        } else if (value == 0.0) {
+            // black
+            hue = 0.0;
+            saturation = 0.0;
+        }
+
         return new Hsv() {Hue = hue, Saturation = saturation, Value = value};
     }
 

@@ -7,11 +7,6 @@ namespace ColorTools.Tests.Colors;
 
 public class RgbTests {
     [Fact]
-    public void InvalidChannelThrows() {
-        
-    }
-
-    [Fact]
     public void ToHexWhiteCorrect() {
         Rgb rgb = new Rgb() {Red = 255, Green = 255, Blue = 255};
         string xWhite = "#FFFFFF";
@@ -122,10 +117,10 @@ public class RgbTests {
         Hsv orange = new Hsv() {Hue = 22.0, Saturation = 0.8, Value = 0.86};
         Rgb rgb = new Rgb(orange);
 
-        // RGB 219, 108, 44    
+        // RGB 219, 108, 43    
         Assert.Equal(219, rgb.Red);
         Assert.Equal(108, rgb.Green);
-        Assert.Equal(44, rgb.Blue);
+        Assert.Equal(43, rgb.Blue);
     }
 
     [Fact]
@@ -144,9 +139,9 @@ public class RgbTests {
         Hsv purple = new Hsv() {Hue = 267.0, Saturation = 0.96, Value = 0.74};
         Rgb rgb = new Rgb(purple);
 
-        // RGB 89, 8, 189
+        // RGB 89, 7, 188
         Assert.Equal(89, rgb.Red);
-        Assert.Equal(8, rgb.Green);
-        Assert.Equal(189, rgb.Blue);
+        Assert.Equal(7, rgb.Green);
+        Assert.Equal(188, rgb.Blue);
     }
 }

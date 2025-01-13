@@ -8,17 +8,17 @@ namespace ColorTools.Tests.Services;
 public class HsvTests {
     [Fact]
     public void InvalidHueThrows() {
-        
+        Assert.Throws<ArgumentException>(() => new Hsv() {Hue= 361, Saturation = 0.5, Value = 0.4});
     }
 
     [Fact]
     public void InvalidSaturationThrows() {
-        
+        Assert.Throws<ArgumentException>(() => new Hsv() {Hue= 241, Saturation = 1.5, Value = 0.4});
     }
 
     [Fact]
     public void InvalidValueThrows() {
-        
+        Assert.Throws<ArgumentException>(() => new Hsv() {Hue= 240, Saturation = 0.5, Value = 4.4});
     }
 
     [Fact]
